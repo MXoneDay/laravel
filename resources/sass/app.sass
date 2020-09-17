@@ -1,0 +1,178 @@
+@import 'variables.sass'
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html
+    text-rendering: optimizeLegibility
+    font-family: 'Montserrat'
+    font-weight: $font-weight-medium
+    -webkit-text-size-adjust: 100%
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    letter-spacing: 0.024em
+
+body
+    background-color: $primary-background-color
+
+button
+    display: inline-block
+    padding: 1rem 1.375rem
+    min-width: 225px
+    line-height: inherit
+    font: inherit
+    font-size: 0.875em
+    font-weight: $font-weight-regular
+    letter-spacing: 0.5px
+    outline: 0
+    border: 0
+    border-radius: 10px
+    -webkit-appearance: none
+    cursor: pointer
+    &[primary]
+        background-color: $primary-red
+        color: $primary-white
+    &[discord]
+        background-color: $discord-color
+        color: $primary-white
+        padding-top: 0.5rem
+        padding-bottom: 0.5rem
+        &::before
+            content: ''
+            display: inline-block
+            background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQ1IDI0MCI+PHN0eWxlPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDQuNCAxMDMuOWMtNS43IDAtMTAuMiA1LTEwLjIgMTEuMXM0LjYgMTEuMSAxMC4yIDExLjFjNS43IDAgMTAuMi01IDEwLjItMTEuMS4xLTYuMS00LjUtMTEuMS0xMC4yLTExLjF6TTE0MC45IDEwMy45Yy01LjcgMC0xMC4yIDUtMTAuMiAxMS4xczQuNiAxMS4xIDEwLjIgMTEuMWM1LjcgMCAxMC4yLTUgMTAuMi0xMS4xcy00LjUtMTEuMS0xMC4yLTExLjF6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTE4OS41IDIwaC0xMzRDNDQuMiAyMCAzNSAyOS4yIDM1IDQwLjZ2MTM1LjJjMCAxMS40IDkuMiAyMC42IDIwLjUgMjAuNmgxMTMuNGwtNS4zLTE4LjUgMTIuOCAxMS45IDEyLjEgMTEuMiAyMS41IDE5VjQwLjZjMC0xMS40LTkuMi0yMC42LTIwLjUtMjAuNnptLTM4LjYgMTMwLjZzLTMuNi00LjMtNi42LTguMWMxMy4xLTMuNyAxOC4xLTExLjkgMTguMS0xMS45LTQuMSAyLjctOCA0LjYtMTEuNSA1LjktNSAyLjEtOS44IDMuNS0xNC41IDQuMy05LjYgMS44LTE4LjQgMS4zLTI1LjktLjEtNS43LTEuMS0xMC42LTIuNy0xNC43LTQuMy0yLjMtLjktNC44LTItNy4zLTMuNC0uMy0uMi0uNi0uMy0uOS0uNS0uMi0uMS0uMy0uMi0uNC0uMy0xLjgtMS0yLjgtMS43LTIuOC0xLjdzNC44IDggMTcuNSAxMS44Yy0zIDMuOC02LjcgOC4zLTYuNyA4LjMtMjIuMS0uNy0zMC41LTE1LjItMzAuNS0xNS4yIDAtMzIuMiAxNC40LTU4LjMgMTQuNC01OC4zIDE0LjQtMTAuOCAyOC4xLTEwLjUgMjguMS0xMC41bDEgMS4yYy0xOCA1LjItMjYuMyAxMy4xLTI2LjMgMTMuMXMyLjItMS4yIDUuOS0yLjljMTAuNy00LjcgMTkuMi02IDIyLjctNi4zLjYtLjEgMS4xLS4yIDEuNy0uMiA2LjEtLjggMTMtMSAyMC4yLS4yIDkuNSAxLjEgMTkuNyAzLjkgMzAuMSA5LjYgMCAwLTcuOS03LjUtMjQuOS0xMi43bDEuNC0xLjZzMTMuNy0uMyAyOC4xIDEwLjVjMCAwIDE0LjQgMjYuMSAxNC40IDU4LjMgMCAwLTguNSAxNC41LTMwLjYgMTUuMnoiLz48L3N2Zz4=)
+            background-repeat: no-repeat
+            background-size: contain
+            margin-right: 15px
+            margin-top: 4px
+            width: 38px
+            height: 38px
+            vertical-align: -1rem
+
+.flex
+    display: flex
+    &.f-jc-center
+        justify-content: center
+    &.f-ai-center
+        align-items: center
+.flex-item
+    flex: 1
+
+section
+    padding: 55px 0
+    &.bg-primary-red,
+    &.bg-primary-dark-purple
+        padding: 110px 0
+        &:not(:first-child)
+            margin-top: 55px
+        &:not(:last-child)
+            margin-bottom: 55px
+header.header,
+footer.footer
+    padding: 55px 0
+.container
+    margin: auto
+    padding: 0 30px
+    width: 100%
+    max-width: 1400px
+
+h1
+    line-height: 1.2em
+p
+    line-height: 1.75em
+    margin-bottom: 2em
+p:last-child
+    margin-bottom: 0
+h1,
+h2
+    font-size: 2.375em
+    font-weight: $font-weight-bold
+    margin-bottom: 0.45em
+    .h-above
+        display: block
+        margin-bottom: 0.375em
+        font-size: 0.7em
+        font-weight: $font-weight-regular
+.ta-left
+    text-align: left
+.ta-center
+    text-align: center
+.ta-right
+    text-align: right
+
+.bg-primary-red,
+.bg-primary-dark-purple
+    color: $primary-white
+    p
+        opacity: 0.9
+.bg-primary-red
+    background-color: $primary-red
+.bg-primary-dark-purple
+    background-color: $primary-dark-purple
+
+.banner
+    h1
+        font-size: 3em
+
+.box
+    padding: 30px
+    border-radius: 30px
+    &.box-large
+        padding: 45px
+    &.banner
+        padding: 85px 30px
+        &.banner
+            padding: 85px 45px
+
+.dots
+    display: grid
+    pointer-events: none
+    &.dots_16x16
+        grid-template-columns: 28px 28px 28px 28px 28px 28px
+        grid-template-rows: 28px 28px 28px 28px 28px 28px
+        &.dots-left
+            width: 115px
+        &.dots-bottom
+            align-self: flex-end
+            margin-bottom: 55px
+            transform: translate3d(0, 55px, 0)
+    .dot
+        background-color: $primary-white
+        width: 8px
+        height: 8px
+        border-radius: 100%
+        justify-self: center
+        align-self: center
+.dots ~ *
+    align-self: flex-start
+    z-index: 1
+
+.timer
+    display: flex
+    margin: auto
+    width: 100%
+    max-width: 380px
+    > div
+        flex: 1
+        align-items: center
+        text-align: center
+    .t-value
+        font-size: 2.25em
+        font-weight: $font-weight-bold
+        &:not(:last-child)
+            margin-bottom: 15px
+    .t-caption
+        opacity: 0.75
+        font-size: 1rem
+        font-weight: $font-weight-regular
+    .t-colon
+        opacity: 0.75
+        font-size: 2em
+
+@media all and (max-width: 1080px)
+    html
+        font-size: 14px
+    .container
+        padding: 0 15px
