@@ -9,7 +9,9 @@ use App\Race; // Maakt het mogelijk Functies uit de Racedate Model te gebruiken
 use App\Result; 
 use App\Team;
 use App\Penalty;  
-
+// NADENK OF DIT WEL DE METHODE IS HOE HET HOORT VAN DATA IN DE PAGINA"S PASSEN
+// DUPLICATE FUNCTIE IN RESULTS EN PENALTIES (Sort) HOE MAAK IK DEZE GLOBAAL
+// OP schonen van pages controller of opdelen in sub stukken per pagina zodat het overzichtelijker word
 class PagesController extends Controller
 {
     public function index(){
@@ -244,8 +246,40 @@ class PagesController extends Controller
 
         $currentTime = Carbon\Carbon::now();
         $race_id = RacesController::get_race_id($currentTime); 
+
+        foreach($drivers as $driver){
+                
+            $id =           1 ; // intalisatie van de ID (timer)
+            $total_licence_points = 0 ; // intalisatie van de punten per race
+            $total_warnings = 0 ; // intalisatie van de totale punten
+
+            while($id <= $race_id){
+                $penalties_per_driver = Penalty::select('*')->where([['race_id', '=', $id],['driver_number', '=', $driver->driver_number]])->get();
+
+                foreach($penalties_per_driver as $penalty){
+                    $warning = $penalty->warning;
+                    $total_warnings = $total_warnings + $warning;
+
+                    $licence_point = $penalty->licence_points;
+                    $total_licence_points = $total_licence_points + $licence_point;
+                };
+
+                $id++;
+            }
+
+            $warning_meter = $total_warnings + 10*($total_licence_points) ; 
+            $FIA[] = array( "name" => $driver->firstname." ".$driver->lastname, 
+                            "warnings"  => $total_warnings,
+                            "licence_points"  => $total_licence_points,
+                            "warning_meter"  => $warning_meter
+            ); 
+
+        }  
+        
+        $sort_FIA = PenaltiesController::array_sort($FIA);
+        array_multisort($sort_FIA["warning_meter"],SORT_DESC,$FIA); 
     
-        return view('pages.fia')->with(compact('penalties', 'drivers', "race_id"));
+        return view('pages.fia')->with(compact('penalties', 'drivers', "race_id", "FIA"));
     }
 
 }

@@ -73,7 +73,4 @@ class ResultsController extends Controller
         }
         return $sort;
     }
-
-    // public static function get_grand_prix_name($race_id, $i){
-    // }
 }

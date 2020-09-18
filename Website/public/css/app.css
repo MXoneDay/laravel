@@ -477,6 +477,7 @@ button[secondary] {
   display: table-cell;
   text-align: center;
 }
+
 @media all and (max-width: 1080px) {
   html {
     font-size: 14px;
